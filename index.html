@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komputer Store</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div id="bankContainer">
+        <h2>The Bank</h2>
+        <b>Balance:</b> <b id="balance"></b><b>kr</b><br>
+        
+        <b id="outstandingLoan" hidden>Outstanding Loan:</b> <b id="outstandingLoan"></b><br>
+        
+        <button id="getLoanButton">Get a loan</button>
+    </div>  
+
+    <div id="workContainer">
+        <h2>Work</h2>
+        <b>Pay:</b> <b id="pay"></b><b>kr</b><br>
+        <button id="payBankButton">Bank</button>
+        <button id="workButton">Work</button>
+        <button id="repayLoanButton" hidden>Repay Loan</button>
+    </div>
+
+    <div id="laptopContainer">
+        <h2>Laptops</h2>
+        <select name="laptops" id="laptops"></select>
+        <p>Features: </p>
+        <p id="specs"></p>
+    </div>
+
+</div>
+    <script src="app.js"></script>
+    
+</body>
+</html>
