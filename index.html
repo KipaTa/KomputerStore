@@ -4,37 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Komputer Store</title>
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid" >
 
-    <div id="bankContainer">
-        <h2>The Bank</h2>
-        <b>Balance:</b> <b id="balance"></b><b>kr</b><br>
-        
-        <b id="outstandingLoan" hidden>Outstanding Loan:</b> <b id="outstandingLoan"></b><br>
-        
-        <button id="getLoanButton">Get a loan</button>
-    </div>  
-
-    <div id="workContainer">
-        <h2>Work</h2>
-        <b>Pay:</b> <b id="pay"></b><b>kr</b><br>
-        <button id="payBankButton">Bank</button>
-        <button id="workButton">Work</button>
-        <button id="repayLoanButton" hidden>Repay Loan</button>
+    <div class="headerContainer">
+        <div class="row text-center">
+            
+                <h1>KomputerStore</h1>
+            
+        </div>
     </div>
 
-    <div id="laptopContainer">
-        <h2>Laptops</h2>
-        <select name="laptops" id="laptops"></select>
-        <p>Features: </p>
-        <p id="specs"></p>
+
+    <div class=" text-center col-sm-3 bg-warning" style="border:1px solid #cecece">
+        <div id="bankContainer" style="padding:50px">
+            <h2>The Bank</h2>
+            <b>Balance:</b> <b id="balance"></b><b>kr</b><br>
+            
+            <b id="outstandingLoan" hidden>Outstanding Loan:</b> <b id="outstandingLoan"></b><br>
+            
+            <button id="getLoanButton" class="btn btn-primary">Get a loan</button>
+        </div>  
     </div>
+
+    <div class="col-sm-1"></div>
+
+    <div class=" text-center col-sm-3 bg-warning" style="border:1px solid #cecece">
+        <div id="workContainer" style="padding:50px">
+            <h2>Work</h2>
+            <b>Pay:</b> <b id="pay"></b><b>kr</b><br>
+            <button id="payBankButton" class="btn btn-primary">Bank</button>
+            <button id="workButton" class="btn btn-info">Work</button>
+            <button id="repayLoanButton" hidden>Repay Loan</button>
+        </div>
+    </div>
+
+    <div class="col-sm-1"></div>
+
+    <div class="text-center col-sm-3 bg-warning" style="border:1px solid #cecece" >  
+    
+        <div id="laptopContainer" style="padding:50px" >
+            <h2>Laptops</h2>
+            <select name="laptops" id="laptops"></select>
+            <p>Features: </p>
+            <p id="specs"></p>
+        </div>
+    </div>
+
+    
 
 </div>
+
+<div class="row text-center bg-warning" style="border:1px solid #cecece" >
+    <div class="computerContainer" >
+        
+            <h3>Tähän tietokoneet</h3>
+        
+    </div>
+</div>
+
     <script src="app.js"></script>
     
 </body>

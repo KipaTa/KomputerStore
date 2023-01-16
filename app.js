@@ -79,6 +79,7 @@ const payLoan = () => {
             loanValue = 0
             hasLoan = false
             outstandingLoanElement.hidden = true
+
         } else {
             console.log("something is wrong")
         }
@@ -93,12 +94,26 @@ const payLoan = () => {
 //Transfer pay to bank, if has loan, 10% will go to loanpayment
 const bankPay = () => {
     if (hasLoan) {
-        loanValue = loanValue - (0.1 * payBalance)
-        bankBalance = bankBalance + (0.9 * payBalance)
+        const tenProcent = 0.1 * payBalance
+        const ninetyProcent = 0.9 * payBalance
+
+        if (tenProcent >= loanValue) {
+            bankBalance = bankBalance + (payBalance-loanValue)
+            loanValue = 0
+            payBalance = 0
+            hasLoan = false
+            outstandingLoanElement.hidden = true
+            repayLoanButtonElement.hidden = true
+        }
+        else {
+        loanValue = loanValue - tenProcent
+        bankBalance = bankBalance + ninetyProcent
         payBalance = 0
 
         balanceElement.innerText = bankBalance
         outstandingLoanElement.innerText = "Outstanding loan: " + loanValue + "kr"
+        repayLoanButtonElement.hidden = true
+        }
 
     } else {
         bankBalance = bankBalance + payBalance
