@@ -1,6 +1,5 @@
-# Experis Front-end Development_Assignment 1: JavaScript Fundamentals
+# Experis Front-end Development_Assignment 1: The Komputer Store
 
-The Komputer Store
 
 Dynamic webpage using "vanilla" Javascript. Page contains following features:
 
