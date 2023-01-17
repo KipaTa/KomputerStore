@@ -1,7 +1,7 @@
 # Experis Front-end Development_Assignment 1: The Komputer Store
 
 
-Dynamic webpage using "vanilla" Javascript. Page contains following features:
+Dynamic webpage using "vanilla" Javascript and styled with Bootstrap 5. Page contains following features:
 
 1) The Bank – an area where you will store funds and make bank loans
 
