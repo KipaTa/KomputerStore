@@ -23,12 +23,18 @@ let payBalance = 0.00
 
 
 
-//bank features start
+//BANK features start
 balanceElement.innerText = bankBalance
 outstandingLoanElement.innerText = loanValue
 
+//The Get a loan button will attempt to get a loan from the bank. When the Get a loan button is clicked, it must show a 
+//“Prompt” popup box that allows you to enter an amount. 
+//Constraints on Get a loan button: 
+//1. You cannot get a loan more than double of your bank balance (i.e., If you have 500 you cannot get a loan greater 
+//than 1000.)
+//2. You cannot get more than one bank loan before repaying the last loan
+//3. You may not have two loans at once. The initial loan should be paid back in full.
 const getLoan = () => {
-
     const loanPrompt = Number(window.prompt("Type the loan amount:"))
 
     if (bankBalance <= 0) {
@@ -54,24 +60,28 @@ const getLoan = () => {
 }
 
 loanButtonElement.addEventListener('click', getLoan)
-//bank features stop
+//BANK features stop
 
-//work features start
+//WORK features start
 payElement.innerText = payBalance
 
+//The work button increases your Pay balance at a rate of 100 on each click.
 const work = () => {
     payBalance += 100
     payElement.innerText = payBalance
 }
 
-//Makes repayLoanButton visible 
+//Makes repayLoanButton visible if customer has outstanding loan 
 const repayLoanVisible = () => {
     if (hasLoan) {
         repayLoanButtonElement.hidden = false
     }
 }
 
-//Pay loan by payBalance
+//Pay loan by payBalance:
+//Upon clicking Repay Loan button, the full value of 
+//current Pay amount should go towards the outstanding loan and NOT bank account.
+//Any remaining funds after paying the loan may be transferred to bank account
 const payLoan = () => {
     if (payBalance > 0 ) {
         if (payBalance < loanValue) {
@@ -98,6 +108,10 @@ const payLoan = () => {
 }
 
 //Transfer pay to bank, if has loan, 10% will go to loanpayment
+//The bank button transfers the money from Pay balance to Bank balance. 
+// If customer has an outstanding loan, 10% of salary is first deducted and transferred to the 
+//outstanding Loan amount 
+//The balance after the 10% deduction is transferred to bank account
 const bankPay = () => {
     if (hasLoan) {
         const tenProcent = 0.1 * payBalance
@@ -130,21 +144,22 @@ const bankPay = () => {
     }
 
     payElement.innerText = payBalance
-
 }
  
 
 payBankButtonElement.addEventListener('click', bankPay)
 workButtonElement.addEventListener('click', work)
 repayLoanButtonElement.addEventListener('click', payLoan)
-//work fetures stop
+//WORK fetures stop
 
-// Laptop features start
+//LAPTOP features start
+
+//Fetch the computers from API
 fetch("https://hickory-quilled-actress.glitch.me/computers")
     .then(response => response.json())
     .then(data => computers = data)
     .then(computers => addComputersToList(computers))
-//try/catch async/await?
+
 
 //iterates available computers to dropdown list and displays first computers details
 const addComputersToList = (computers) => {
@@ -185,6 +200,11 @@ const handleComputerListChange = e => {
     
 }
 
+//Buy Now function button will attempt to “Buy” a laptop and validate 
+//whether the bank balance is sufficient to purchase the selected laptop. 
+//If there is not enough money in the “Bank”, a message is shown that you cannot afford the laptop. 
+//If customer has sufficient “Money” in the account, the amount is deducted from the bank and  
+//an alert message that you are now the owner of the new laptop!
 const buyComputer = () => {
     if (computerPrice <= bankBalance ) {
         bankBalance = bankBalance - computerPrice
