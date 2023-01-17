@@ -8,3 +8,5 @@ Dynamic webpage using "vanilla" Javascript and styled with Bootstrap 5. Page con
 2) Work – an area to increase your earnings and deposit cash into your bank balance
 
 3) Laptops – an area to select and display information about the merchandise
+
+Webpage: https://kipata.github.io/
